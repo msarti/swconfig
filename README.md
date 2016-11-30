@@ -15,15 +15,14 @@ Install build dependencies
 As this utility talks to the switch driver in the kernel, kernel headers need to be in
 place and "switch.h" must be present otherwise the build will fail.
 
-If this file is missing, copy it from here and save to /usr/include/linux/ on the build machine:
-https://github.com/openwrt-mirror/openwrt/blob/master/target/linux/generic/files/include/uapi/linux/switch.h
-
-After all the above is done, clone the repo:
-
-    git clone https://github.com/jekader/swconfig.git
+    wget -O /usr/include/linux/switch.h https://raw.githubusercontent.com/Bananian/openwrt/master/target/linux/generic/files/include/uapi/linux/switch.h
+    git clone https://github.com/msarti/swconfig.git
     cd swconfig
     bash build.sh
-    dpkg -i ../swconfig_15.04-1_armhf.deb
+    cd ..
+    dpkg -i swconfig_15.04-1_armhf.deb
+    rm -rf swconfig*
+
 
 USE:
 ----
